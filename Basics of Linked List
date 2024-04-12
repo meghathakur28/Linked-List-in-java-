@@ -20,7 +20,7 @@ public class BasicsLL {
         // 5 6 10 16
         a.next=b;//5 -> 6 10 16
         b.next=c;//5->6->10 16
-        c.next=d;//5->6->->10
+        c.next=d;//5->6->10->16
         System.out.println(a.next);//the address of b
         System.out.println(a.next.data);//data of b
         System.out.println(a.next.next.next.data);//data of d
