@@ -1,0 +1,30 @@
+package linkedList;
+
+public class BasicsLL {
+    public static class Node{
+        int data;
+        Node next;
+        Node(int data)
+        {
+            this.data=data;
+        }
+    }
+    public static void main(String[] args) {
+        Node a= new Node(5);
+        Node b= new Node(6);
+        Node c=new Node(10);
+        Node d=new Node(16);
+        System.out.println(a.data);
+        System.out.println(a.next);//list is not connected yet
+        //Conection of linked list
+        // 5 6 10 16
+        a.next=b;//5 -> 6 10 16
+        b.next=c;//5->6->10 16
+        c.next=d;//5->6->->10
+        System.out.println(a.next);//the address of b
+        System.out.println(a.next.data);//data of b
+        System.out.println(a.next.next.next.data);//data of d
+        //this is how we will access the data of d node from a node by linking the node 
+    }
+
+}
