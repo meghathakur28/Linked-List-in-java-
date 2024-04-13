@@ -1,0 +1,47 @@
+public class BasicsLL {
+    public static class Node{
+        int data;
+        Node next;
+        Node(int data)
+        {
+            this.data=data;
+        }
+    }
+    public static class LinkedList{
+        Node head=null;
+        Node tail=null;
+        public void insert(int  val)
+        {
+            Node temp=new Node(val);
+            if(head==null)
+            {
+                head=temp;
+            }
+            else
+            {
+                tail.next=temp;
+            }
+            tail=temp;
+
+        }
+        public void display()
+        {
+            Node abc=head;
+            while(abc!=null)
+            {
+                System.out.println(abc.data);
+                abc=abc.next;
+            }
+        }
+    }
+    public static void main(String[] args) {
+        LinkedList ll=new LinkedList();
+        ll.insert(4);
+        ll.insert(5);
+        ll.display();
+
+
+
+    }
+
+}
