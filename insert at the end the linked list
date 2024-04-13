@@ -1,0 +1,99 @@
+public class BasicsLL {
+    public static class Node{
+        int data;
+        Node next;
+        Node(int data)
+        {
+            this.data=data;
+        }
+    }
+    public static class LinkedList{
+        Node head=null;
+        Node tail=null;
+        public void insertAtEnd(int  val)
+        {
+            Node temp=new Node(val);
+            if(head==null)
+            {
+                head=temp;
+            }
+            else
+            {
+                tail.next=temp;
+            }
+            tail=temp;
+
+        }
+        public void display()
+        {
+            Node abc=head;
+            while(abc!=null)
+            {
+                System.out.println(abc.data);
+                abc=abc.next;
+            }
+        }
+        public void insertAtBeg(int val)
+        {
+            Node temp=new Node(val);
+            if(head==null)
+            {
+                head=temp;
+                tail=temp;
+            }
+            else {
+                temp.next = head;
+                head = temp;
+            }
+
+        }
+        public void insertAt(int indx,int val)
+        {
+            Node t = new Node(val);
+            Node temp=head;
+            if(indx==size())
+            {
+                insertAtEnd(val);
+                return;
+            }
+            for(int i=0;i<indx-1;i++)
+            {
+                temp=temp.next;
+            }
+            t.next=temp.next;
+            temp.next=t;
+
+        }
+        public int size()
+        {
+            Node temp=head;
+            int count=0;
+            while(temp!=null)
+            {
+                count++;
+                temp=temp.next;
+            }
+            return count;
+        }
+    }
+    public static void main(String[] args) {
+        LinkedList ll=new LinkedList();
+        ll.insertAtBeg(8);
+        ll.insertAtBeg(16);
+        ll.insertAtBeg(18);
+        ll.insertAtBeg(198);
+
+
+        ll.insertAt(2,14);//198->18->14->16->8
+        System.out.println("size: "+ll.size());
+        ll.insertAt(5,20);//198->18->14->16->8->20
+        ll.display();
+        System.out.println("size: "+ll.size());
+        System.out.println("tail: "+ll.tail.data);
+
+
+
+
+    }
+
+}
