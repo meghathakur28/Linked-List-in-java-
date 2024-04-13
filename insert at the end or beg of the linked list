@@ -56,6 +56,11 @@ public class BasicsLL {
                 insertAtEnd(val);
                 return;
             }
+            if(indx==0)
+            {
+                insertAtBeg(val);
+                return;
+            }
             for(int i=0;i<indx-1;i++)
             {
                 temp=temp.next;
@@ -87,9 +92,10 @@ public class BasicsLL {
         ll.insertAt(2,14);//198->18->14->16->8
         System.out.println("size: "+ll.size());
         ll.insertAt(5,20);//198->18->14->16->8->20
-        ll.display();
         System.out.println("size: "+ll.size());
         System.out.println("tail: "+ll.tail.data);
+        ll.insertAt(0,100);//200->198->18->14->16->8->20
+        ll.display();
 
 
 
