@@ -93,16 +93,20 @@ public class BasicsLL {
         public void deleteAt(int indx)
         {
             Node temp=head;
-            for(int i=0;i<=indx;i++)
+            if(indx==0)
             {
-                temp=temp.next;
+                head=head.next;
             }
-            Node t=head;
-            for(int i=0;i<indx-1;i++)
-            {
-                t=t.next;
+            else {
+                for (int i = 0; i <= indx; i++) {
+                    temp = temp.next;
+                }
+                Node t = head;
+                for (int i = 0; i < indx - 1; i++) {
+                    t = t.next;
+                }
+                t.next = temp;
             }
-            t.next=temp;
 
         }
     }
@@ -122,7 +126,7 @@ public class BasicsLL {
         ll.insertAt(0,200);//200->198->18->14->16->8->20
 //        ll.display();
 //        System.out.println("getting the element: "+ll.getAt(3));//14
-        ll.deleteAt(6);//200->198->14->16->8->20
+        ll.deleteAt(0);//200->198->14->16->8->20
         ll.display();
 
 
