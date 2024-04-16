@@ -1,0 +1,66 @@
+//delete the nth node from the end of the linked list (in the first traversal)
+public class nthNode {
+    public static class Node{
+        int data;
+        Node next;
+        Node(int x)
+        {
+            data=x;
+        }
+    }
+    public static class LinkedList
+    {
+        Node t=null;
+        void delete(Node head,int indx)
+        {
+            t=head;
+            Node slow=t;
+            Node fast=t;
+            int size = 0;
+            Node temp=head;
+            while(temp!=null)
+            {
+                temp=temp.next;
+                size++;
+            }
+            if(indx==size)
+            {
+                t=t.next;
+            }
+            else {
+                for (int i = 1; i <= indx; i++) {
+                    fast = fast.next;
+
+                }
+                while (fast.next != null) {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                slow.next = slow.next.next;
+            }
+        }
+        void display()
+        {
+            while(t!=null)
+            {
+                System.out.println(t.data+" ");
+                t=t.next;
+            }
+        }
+    }
+    public static void main(String[] args) {
+        Node a=new Node(10);
+        Node b=new Node(160);
+        Node c=new Node(670);
+        Node d=new Node(98);
+        Node e=new Node(32);
+        a.next=b;
+        b.next=c;
+        c.next=d;
+        d.next=e;
+        LinkedList ll = new LinkedList();
+        ll.delete(a,5);
+        ll.display();
+
+    }
+}
