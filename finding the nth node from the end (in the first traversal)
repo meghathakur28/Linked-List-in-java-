@@ -1,0 +1,44 @@
+public class nthNode {
+    public static class Node{
+        int data;
+        Node next;
+        Node(int x)
+        {
+            data=x;
+        }
+    }
+    public static class LinkedList
+    {
+        Node Finding(Node head,int indx)
+        {
+            Node slow=head;
+            Node fast=head;
+            for(int i=1;i<=indx;i++)
+            {
+                fast=fast.next;
+
+            }
+            while(fast!=null)
+            {
+                slow=slow.next;
+                fast=fast.next;
+            }
+            return slow;
+        }
+    }
+    public static void main(String[] args) {
+        Node a=new Node(10);
+        Node b=new Node(160);
+        Node c=new Node(670);
+        Node d=new Node(98);
+        Node e=new Node(32);
+        a.next=b;
+        b.next=c;
+        c.next=d;
+        d.next=e;
+        LinkedList ll = new LinkedList();
+        Node q=ll.Finding(a,2);
+        System.out.println(q.data);//98
+
+    }
+}
