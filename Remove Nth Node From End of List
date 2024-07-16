@@ -1,0 +1,47 @@
+//Remove Nth Node From End of List
+Example 1:
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+
+Example 2:
+Input: head = [1], n = 1
+Output: []
+
+Example 3:
+Input: head = [1,2], n = 1
+Output: [1]
+
+solution: 
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        int size=0;
+        ListNode temp=head;
+        while(temp!=null)
+        {
+            size++;
+            temp=temp.next;
+        }
+        int m=size+1-n;
+        temp=head;
+        for(int i=1;i<m-1;i++)
+        {
+            temp=temp.next;
+        }
+        if(size == n)
+        {
+            if(head.next == null){
+            head = null;}
+            else
+            {
+                head=head.next;
+            }
+        }
+        if(n==1)
+        {
+            temp.next=null;
+        }
+        else{
+        temp.next=temp.next.next;}
+        return head;
+    }
+}
